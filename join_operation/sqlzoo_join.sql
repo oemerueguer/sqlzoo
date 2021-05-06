@@ -114,7 +114,18 @@ SELECT DISTINCT goal.player FROM goal
 JOIN game ON goal.matchid = game.id
 WHERE goal.teamid != 'GER' AND (game.team1 = 'GER' OR game.team2 = 'GER'); 
 
+/*
+9. Show teamname and the total number of goals scored.
 
+COUNT and GROUP BY
+You should COUNT(*) in the SELECT line and GROUP BY teamname
+*/
+
+/*        SOLUTION        */
+
+SELECT teamname, COUNT(*) FROM eteam 
+JOIN goal ON eteam.id = goal.teamid
+GROUP BY teamname;
 
 
 
