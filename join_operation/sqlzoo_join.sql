@@ -75,7 +75,7 @@ JOIN eteam ON eteam.id = goal.teamid
 WHERE goal.gtime <= 10;
 
 /*
-7. To JOIN game with eteam you could use either
+6. To JOIN game with eteam you could use either
 game JOIN eteam ON (team1=eteam.id) or game JOIN eteam ON (team2=eteam.id)
 
 Notice that because id is a column name in both game and eteam you must specify eteam.id instead of just id
@@ -88,6 +88,14 @@ SELECT game.mdate, eteam.teamname FROM game
 JOIN eteam ON (game.team1=eteam.id)
 WHERE eteam.coach = 'Fernando Santos';
 
+/*
+7. List the player for every goal scored in a game where the stadium was 'National Stadium, Warsaw'
+*/
+
+/*        SOLUTION          */
+SELECT goal.player FROM goal
+JOIN game ON (goal.matchid = game.id)
+WHERE game.stadium = 'National Stadium, Warsaw';
 
 
 
