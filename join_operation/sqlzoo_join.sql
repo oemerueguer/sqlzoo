@@ -49,11 +49,30 @@ JOIN game ON goal.matchid = game.id
 WHERE goal.teamid = 'GER';
 
 
+/*
+4. Use the same JOIN as in the previous question.
+
+Show the team1, team2 and player for every goal scored by a player called Mario player LIKE 'Mario%'
+*/
+
+/*        SOLUTION          */
+SELECT game.team1, game.team2, goal.player FROM goal
+JOIN game ON goal.matchid = game.id
+WHERE goal.player LIKE 'Mario%';
 
 
 
+/*
+5.The table eteam gives details of every national team including the coach. 
+You can JOIN goal to eteam using the phrase goal JOIN eteam on teamid=id
 
+Show player, teamid, coach, gtime for all goals scored in the first 10 minutes gtime<=10
+*/
 
+/*        SOLUTION          */
+SELECT goal.player, goal.teamid, eteam.coach, goal.gtime FROM goal
+JOIN eteam ON eteam.id = goal.teamid
+WHERE goal.gtime <= 10;
 
 
 
