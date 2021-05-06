@@ -109,7 +109,6 @@ You can use DISTINCT to stop players being listed twice.
 */
 
 /*        SOLUTION        */
-
 SELECT DISTINCT goal.player FROM goal
 JOIN game ON goal.matchid = game.id
 WHERE goal.teamid != 'GER' AND (game.team1 = 'GER' OR game.team2 = 'GER'); 
@@ -122,7 +121,6 @@ You should COUNT(*) in the SELECT line and GROUP BY teamname
 */
 
 /*        SOLUTION        */
-
 SELECT teamname, COUNT(*) FROM eteam 
 JOIN goal ON eteam.id = goal.teamid
 GROUP BY teamname;
@@ -137,7 +135,6 @@ JOIN goal ON game.id = goal.matchid
 GROUP BY stadium;
 
 /*        OR        */
-
 SELECT game.stadium, COUNT(*) FROM game
 JOIN goal ON game.id = goal.matchid
 GROUP BY game.stadium;
@@ -160,6 +157,11 @@ WHERE (game.team1 = 'POL' OR game.team2 = 'POL')
 GROUP BY game.id, game.mdate
 ORDER BY game.id;
 
+/*
+12. For every match where 'GER' scored, show matchid, match date and the number of goals scored by 'GER'
+*/
+
+/*        SOLUTION        */
 
 
 
