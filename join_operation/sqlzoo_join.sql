@@ -97,6 +97,22 @@ SELECT goal.player FROM goal
 JOIN game ON (goal.matchid = game.id)
 WHERE game.stadium = 'National Stadium, Warsaw';
 
+/*
+8. The example query shows all goals scored in the Germany-Greece quarterfinal.
+
+Instead show the name of all players who scored a goal against Germany.
+
+HINT
+Select goals scored only by non-German players in matches where GER was the id of either team1 or team2.
+You can use teamid!='GER' to prevent listing German players.
+You can use DISTINCT to stop players being listed twice.
+*/
+
+/*        SOLUTION        */
+
+SELECT DISTINCT goal.player FROM goal
+JOIN game ON goal.matchid = game.id
+WHERE goal.teamid != 'GER' AND (game.team1 = 'GER' OR game.team2 = 'GER'); 
 
 
 
